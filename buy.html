@@ -1,0 +1,178 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>P.A.I.D - Buy Products</title>
+<style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: black;
+      color: gold;
+      overflow-x: hidden;
+    }
+    .dashboard {
+      position: sticky;
+      top: 0;
+      background: black;
+      color: gold;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      z-index: 999;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(45%, 1fr));
+      gap: 10px;
+      padding: 10px;
+    }
+    .product {
+      background: #111;
+      padding: 10px;
+      border: 1px solid gold;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .product img {
+      width: 100%;
+      max-height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .sticky-icons {
+      position: fixed;
+      right: 10px;
+      bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+    .sticky-icons img {
+      width: 50px;
+      height: 50px;
+      animation: blink 1.5s infinite;
+    }
+    @keyframes blink {
+      50% { opacity: 0.4; }
+    }
+  </style>
+</head>
+<body>
+<div class="dashboard">P.A.I.D Online Store</div>
+<div class="product-grid">
+<div class="product" onclick="showPopup('Classic Leather Bag', '₦15,000')" style="cursor:pointer;">
+<img alt="Leather Bag" src="bag.jpg"/>
+<p><strong>Classic Leather Bag</strong></p>
+<p>₦15,000</p>
+</div>
+<div class="product" onclick="showPopup('Luxury Wrist Watch', '₦22,500')" style="cursor:pointer;">
+<img alt="Wrist Watch" src="watch.jpg"/>
+<p><strong>Luxury Wrist Watch</strong></p>
+<p>₦22,500</p>
+</div>
+<div class="product" onclick="showPopup('Designer Sneakers', '₦18,000')" style="cursor:pointer;">
+<img alt="Sneakers" src="shoes.jpg"/>
+<p><strong>Designer Sneakers</strong></p>
+<p>₦18,000</p>
+</div>
+<div class="product" onclick="showPopup('Men's Shirt', '₦6,500')" style="cursor:pointer;">
+<img alt="Shirt" src="shirt.jpg"/>
+<p><strong>Men's Shirt</strong></p>
+<p>₦6,500</p>
+</div>
+<div class="product" onclick="showPopup('Wireless Earbuds', '₦8,500')" style="cursor:pointer;">
+<img alt="Wireless Earbuds" src="earbuds.jpg"/>
+<p><strong>Wireless Earbuds</strong></p>
+<p>₦8,500</p>
+</div>
+<div class="product" onclick="showPopup('Stylish Sunglasses', '₦5,000')" style="cursor:pointer;">
+<img alt="Sunglasses" src="sunglasses.jpg"/>
+<p><strong>Stylish Sunglasses</strong></p>
+<p>₦5,000</p>
+</div>
+<div class="product" onclick="showPopup('Android Smartphone', '₦45,000')" style="cursor:pointer;">
+<img alt="Smartphone" src="smartphone.jpg"/>
+<p><strong>Android Smartphone</strong></p>
+<p>₦45,000</p>
+</div>
+<div class="product" onclick="showPopup('Casual Hat', '₦3,000')" style="cursor:pointer;">
+<img alt="Cap" src="hat.jpg"/>
+<p><strong>Casual Hat</strong></p>
+<p>₦3,000</p>
+</div>
+<div class="product" onclick="showPopup('Travel Backpack', '₦12,000')" style="cursor:pointer;">
+<img alt="Backpack" src="backpack.jpg"/>
+<p><strong>Travel Backpack</strong></p>
+<p>₦12,000</p>
+</div>
+<div class="product" onclick="showPopup('Leather Wallet', '₦4,000')" style="cursor:pointer;">
+<img alt="Wallet" src="wallet.jpg"/>
+<p><strong>Leather Wallet</strong></p>
+<p>₦4,000</p>
+</div>
+</div>
+<div class="sticky-icons">
+<a href="https://wa.me/2349113185416" target="_blank">
+<img alt="WhatsApp" src="whatsapp_icon.png"/>
+</a>
+<a href="cart.html">
+<img alt="Cart" src="cart_icon.png"/>
+</a>
+</div>
+<script>
+  function showPopup(name, price) {
+    document.getElementById('popup-name').innerText = name;
+    document.getElementById('popup-price').innerText = price;
+    document.getElementById('popup').style.display = 'flex';
+  }
+
+  function closePopup() {
+    document.getElementById('popup').style.display = 'none';
+  }
+</script>
+<style>
+  .popup-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+  }
+  .popup-box {
+    background: black;
+    color: gold;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 90%;
+    max-width: 300px;
+    border: 1px solid gold;
+  }
+  .popup-box button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: gold;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+</style>
+<div class="popup-overlay" id="popup" onclick="closePopup()">
+<div class="popup-box" onclick="event.stopPropagation()">
+<h3 id="popup-name"></h3>
+<p id="popup-price"></p>
+<p><strong>Acct No:</strong> 6141014882 (Opay)</p>
+<button onclick="closePopup()">Close</button>
+</div>
+</div>
+</body>
+</html>
